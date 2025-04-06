@@ -1,0 +1,40 @@
+Installing VirtualBox on Arch Linux is straightforward. Here’s how you can do it:
+
+1. **Install VirtualBox**: Open a terminal and run:
+   ```sh
+   sudo pacman -S virtualbox virtualbox-guest-iso
+   ```
+   When prompted, confirm the installation.
+
+2. **Add your user to the VirtualBox group**:
+   ```sh
+   sudo gpasswd -a $USER vboxusers
+   ```
+
+3. **Load the VirtualBox kernel module**:
+   ```sh
+   sudo modprobe vboxdrv
+   ```
+
+4. **Install the VirtualBox extension pack** (for USB 2.0/3.0 support):
+   ```sh
+   yay -S virtualbox-ext-oracle
+   ```
+
+5. **Enable and start the VirtualBox web service**:
+   ```sh
+   sudo systemctl enable vboxweb.service
+   sudo systemctl start vboxweb.service
+   ```
+
+6. **Verify that the VirtualBox kernel module is loaded**:
+   ```sh
+   lsmod | grep -i vbox
+   ```
+
+7. **Launch VirtualBox**: Search for "VirtualBox" in your application menu or run:
+   ```sh
+   virtualbox
+   ```
+
+For more details, check out the [ArchWiki](https://wiki.archlinux.org/title/VirtualBox) or this [installation guide](https://www.linuxtechi.com/install-virtualbox-on-arch-linux/). Let me know if you need further help! 🚀
